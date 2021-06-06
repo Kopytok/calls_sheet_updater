@@ -1,0 +1,25 @@
+{% import 'bootstrap/wtf.html' as wtf %}
+
+<link rel="stylesheet" href="/static/style.css">
+
+{% block app_content %}
+
+    <div>Выберите файл</div>
+    <br>
+    <div class="row">
+        <div class="col-md-4">
+            {{ wtf.quick_form(form) }}
+        </div>
+    </div>
+
+    <div class="container">
+    {% with messages = get_flashed_messages() %}
+    {% if messages %}
+    {% for message in messages %}
+    <div class="alert alert-info" role="alert">{{ message }}</div>
+    {% endfor %}
+    {% endif %}
+    {% endwith %}
+    </div>
+
+{% endblock %}
